@@ -50,6 +50,10 @@ const mainState = {
 
     this.cursors = game.input.keyboard.createCursorKeys();
     game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
+
+    //Background Music
+    music = game.add.audio("music");
+    music.play('',0,1,true);
   },
 
   fire: function () {
@@ -70,6 +74,8 @@ const mainState = {
       localStorage.setItem('invadershighscore', this.highScore);
     }
     game.state.start('gameover');
+
+
   },
 
   hit: function (bullet, enemy) {
@@ -89,6 +95,7 @@ const mainState = {
     game.load.image('bullet', 'assets/bullet.png');
     game.load.spritesheet('explode', 'assets/explode.png', 128, 128);
     game.load.audio('fire', 'assets/fire.mp3');
+    game.load.audio('music', 'assets/music.wav')
   },
 
   shipGotHit: function (alien, ship) {
@@ -132,6 +139,7 @@ const gameoverState = {
       'gameover');
     game.input.onDown.add(() => { game.state.start('main'); });
   }
+
 };
 
 const game = new Phaser.Game(800, 600);
