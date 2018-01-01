@@ -10,9 +10,10 @@ the adding stopall sound
 -Tweek values to make the gameplay more difficult
 -Tweek gameplay to be more satisfying to play
 -Add special effects
--Create title screen?
+-Power ups
+-Multiple Levels/states
+-Create title screen
 -Create text screen which introduces the player to the game(Maybe provides lore)
--
 
 
 
