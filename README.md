@@ -14,6 +14,8 @@ the adding stopall sound
 -Multiple Levels/states
 -Create title screen
 -Create text screen which introduces the player to the game(Maybe provides lore)
+-Stop player from exiting bounds
+-Add bunkers?
 
 
 

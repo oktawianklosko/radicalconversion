@@ -11,8 +11,10 @@ const mainState = {
     this.aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
     //PowerUp
-    this.powerup = game.add.sprite(400, 550, 'powerup');
+    this.powerup = game.add.sprite(200, 550, 'powerup');
+    this.powerup.enableBody = true;
     game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
+
 
     for (let i = 0; i < 48; i++) {
       let c = this.aliens.create(100 + (i % 8) * 80, 80 + Math.floor(i / 8) * 60, 'enemy');
@@ -103,7 +105,7 @@ const mainState = {
     game.load.spritesheet('explode', 'assets/explode.png', 128, 128);
     game.load.audio('fire', 'assets/fire.mp3');
     game.load.audio('music', 'assets/music.wav')
-    game.load.audio('powerup', 'assets/powerup.png')
+    game.load.image('powerup', 'assets/powerup.png')
   },
 
   shipGotHit: function (alien, ship) {
