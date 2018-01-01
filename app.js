@@ -114,6 +114,11 @@ const mainState = {
     this.explosion.animations.play('boom');
   },
 
+
+  speedpowerup: function () {
+
+  },
+
   update: function () {
     game.physics.arcade.overlap(this.bullets, this.aliens, this.hit, null, this);
     game.physics.arcade.overlap(this.aliens, this.ship, this.shipGotHit, null, this);
