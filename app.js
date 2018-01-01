@@ -13,7 +13,7 @@ const mainState = {
     //PowerUp
     this.powerup = game.add.sprite(200, 550, 'powerup');
     this.powerup.enableBody = true;
-    game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
+    game.physics.physicsBodyType = Phaser.Physics.ARCADE;
 
 
     for (let i = 0; i < 48; i++) {
@@ -115,8 +115,13 @@ const mainState = {
   },
 
 
-  speedpowerup: function () {
-
+  speedpowerup: function (powerup, ship) {
+    this.powerup.kill();
+    if (this.cursors.left.isDown) {
+      this.ship.body.velocity.x = -800;
+    } else if (this.cursors.right.isDown) {
+      this.ship.body.velocity.x = 800;
+    }
   },
 
   update: function () {
