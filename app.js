@@ -54,6 +54,8 @@ const mainState = {
     //Background Music
     music = game.add.audio("music");
     music.play('',0,1,true);
+
+
   },
 
   fire: function () {
@@ -74,6 +76,7 @@ const mainState = {
       localStorage.setItem('invadershighscore', this.highScore);
     }
     game.state.start('gameover');
+    game.sound.stopAll();
 
 
   },
@@ -138,6 +141,7 @@ const gameoverState = {
       game.world.centerY - gameOverImg.height / 2,
       'gameover');
     game.input.onDown.add(() => { game.state.start('main'); });
+    this.music.stopAll();
   }
 
 };
