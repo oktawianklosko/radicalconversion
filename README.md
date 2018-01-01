@@ -25,3 +25,7 @@ On the other hand solving the issues I come across definitely helped to
 improve my own understanding of the code I'm working with. Over the next few
 days I'll need to add adjust the gameplay to portray a radical change and play
 around with adding new content to the code.
+
+1/1/18
+Began working on the power up mechanic, started by creating a basic placeholder
+asset in order to develop the code first.
