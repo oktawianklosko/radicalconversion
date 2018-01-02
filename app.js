@@ -106,6 +106,8 @@ const mainState = {
     game.load.audio('fire', 'assets/fire.mp3');
     game.load.audio('music', 'assets/music.wav')
     game.load.image('powerup', 'assets/powerup.png')
+    game.load.image('powerup2', 'assets/powerup2.png')
+    game.load.image('powerup3', 'assets/powerup3.png')
   },
 
   shipGotHit: function (alien, ship) {
