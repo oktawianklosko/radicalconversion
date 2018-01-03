@@ -13,7 +13,7 @@ const mainState = {
     //PowerUp
     this.powerup = game.add.sprite(200, 550, 'powerup');
     this.powerup.enableBody = true;
-    game.physics.physicsBodyType = Phaser.Physics.ARCADE;
+    this.powerup.physicsBodyType = Phaser.Physics.ARCADE;
 
 
     for (let i = 0; i < 48; i++) {
@@ -105,9 +105,9 @@ const mainState = {
     game.load.spritesheet('explode', 'assets/explode.png', 128, 128);
     game.load.audio('fire', 'assets/fire.mp3');
     game.load.audio('music', 'assets/music.wav')
-    game.load.image('powerup', 'assets/powerup.png')
-    game.load.image('powerup2', 'assets/powerup2.png')
-    game.load.image('powerup3', 'assets/powerup3.png')
+    game.load.image('powerup', 'assets/powerup.jpg')
+    game.load.image('powerup2', 'assets/powerup2.jpg')
+    game.load.image('powerup3', 'assets/powerup3.jpg')
   },
 
   shipGotHit: function (alien, ship) {
