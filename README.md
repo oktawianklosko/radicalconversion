@@ -31,3 +31,8 @@ around with adding new content to the code.
 1/1/18
 Began working on the power up mechanic, started by creating a basic placeholder
 asset in order to develop the code first.
+
+4/1/18
+Still stuck on adding physics to powerup, the player can phase through it instead
+of colliding. I modified the bullet velocity in order to make the gameplay feel
+more engaging and responsive.
