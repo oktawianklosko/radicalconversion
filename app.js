@@ -70,7 +70,7 @@ const mainState = {
       let bullet = this.bullets.getFirstExists(false);
       if (bullet) {
         bullet.reset(this.ship.x + (this.ship.width / 2), this.ship.y - (this.ship.height + 5));
-        bullet.body.velocity.y = -300;
+        bullet.body.velocity.y = -1500;
         this.bulletTime = game.time.now + 150;
       }
     }
@@ -119,7 +119,11 @@ const mainState = {
 
   speedpowerup: function (powerup, ship) {
     this.powerup.kill();
-    
+    if (this.cursors.left.isDown) {
+      this.ship.body.velocity.x = -800;
+    } else if (this.cursors.right.isDown) {
+      this.ship.body.velocity.x = 800;
+    }
   },
 
   update: function () {
