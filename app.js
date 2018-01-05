@@ -12,8 +12,8 @@ const mainState = {
 
     //PowerUp
     this.powerup = game.add.sprite(200, 550, 'powerup');
-    this.powerup.enableBody = true;
-    this.powerup.physicsBodyType = Phaser.Physics.ARCADE;
+    game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
+
 
 
     for (let i = 0; i < 48; i++) {

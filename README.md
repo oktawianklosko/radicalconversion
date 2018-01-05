@@ -8,7 +8,7 @@ To do list:
 the adding stopall sound
 
 -Tweek values to make the gameplay more difficult
--Tweek gameplay to be more satisfying to play
+//Tweek gameplay to be more satisfying to play//Done
 -Add special effects
 -Power ups
 -Multiple Levels/states
