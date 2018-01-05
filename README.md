@@ -11,6 +11,7 @@ the adding stopall sound
 //Tweek gameplay to be more satisfying to play//Done
 -Add special effects
 -Power ups
+--Timer, random spawn
 -Multiple Levels/states
 -Create title screen
 -Create text screen which introduces the player to the game(Maybe provides lore)
