@@ -120,13 +120,13 @@ const mainState = {
 
   speedpowerup: function (powerup, ship) {
     this.powerup.kill();
-    let s = s*2
+    this.ship.body.velocity.x = s;
   },
 
 
 
   update: function () {
-    let s = 300
+    let s = 1000
     game.physics.arcade.overlap(this.bullets, this.aliens, this.hit, null, this);
     game.physics.arcade.overlap(this.aliens, this.ship, this.shipGotHit, null, this);
     game.physics.arcade.overlap(this.powerup, this.ship, this.speedpowerup, null, this);
@@ -140,9 +140,9 @@ const mainState = {
     );
 
     if (this.cursors.left.isDown) {
-      this.ship.body.velocity.x = -s;
+      this.ship.body.velocity.x = -300;
     } else if (this.cursors.right.isDown) {
-      this.ship.body.velocity.x = s;
+      this.ship.body.velocity.x = 300;
     }
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
       this.fire();
