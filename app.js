@@ -2,7 +2,9 @@ const mainState = {
 
   create: function () {
 
-    game.stage.backgroundColor = '#2d2d2d';
+    game.add.image(0, 0, 'background');
+
+    //game.stage.backgroundColor = 'background';
 
     this.ship = game.add.sprite(400, 550, 'ship');
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
@@ -106,9 +108,10 @@ const mainState = {
     game.load.spritesheet('explode', 'assets/explode.png', 128, 128);
     game.load.audio('fire', 'assets/fire.mp3');
     game.load.audio('music', 'assets/music.wav')
-    game.load.image('powerup', 'assets/powerup.jpg')
-    game.load.image('powerup2', 'assets/powerup2.jpg')
-    game.load.image('powerup3', 'assets/powerup3.jpg')
+    game.load.image('powerup', 'assets/powerup.png')
+    game.load.image('powerup2', 'assets/powerup2.png')
+    game.load.image('powerup3', 'assets/powerup3.png')
+    game.load.image('background', 'assets/background.png')
   },
 
   shipGotHit: function (alien, ship) {
@@ -119,6 +122,7 @@ const mainState = {
 
 
   speedpowerup: function (powerup, ship) {
+    let s = 2000;
     this.powerup.kill();
     this.ship.body.velocity.x = s;
   },
@@ -126,7 +130,7 @@ const mainState = {
 
 
   update: function () {
-    let s = 1000
+
     game.physics.arcade.overlap(this.bullets, this.aliens, this.hit, null, this);
     game.physics.arcade.overlap(this.aliens, this.ship, this.shipGotHit, null, this);
     game.physics.arcade.overlap(this.powerup, this.ship, this.speedpowerup, null, this);
