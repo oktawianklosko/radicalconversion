@@ -7,6 +7,7 @@ To do list:
 --When game resets twice gameover state fails to launch for some reason after
 the adding stopall sound
 
+//Gameover when player dies//Done
 -Tweek values to make the gameplay more difficult
 //Tweek gameplay to be more satisfying to play//Done
 -Add special effects
