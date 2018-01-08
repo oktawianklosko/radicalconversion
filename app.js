@@ -15,9 +15,10 @@ const mainState = {
     this.aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
     //PowerUp
-    // this.powerup = game.add.sprite(200, 550, 'powerup');
-    // game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
-    game.add.sprite(game.world.randomX, this.ship.position.y, 'powerup');
+    this.powerup = game.add.sprite(game.world.randomX, this.ship.position.y, 'powerup');
+    //game.add.sprite(game.world.randomX, this.ship.position.y, 'powerup');
+    game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
+
 
 
 
@@ -120,6 +121,9 @@ const mainState = {
     this.explosion.reset(this.ship.x + (this.ship.width / 2), this.ship.y + (this.ship.height / 2));
     this.ship.kill();
     this.explosion.animations.play('boom');
+    if (this.ship.kill) {
+      this.gameOver();
+    }
   },
 
 
