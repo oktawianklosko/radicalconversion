@@ -53,7 +53,7 @@ const mainState = {
     }
 
     this.score = 0;
-    this.scoreDisplay = game.add.text(200, 20, `Score: ${this.score} \nHighScore: ${this.highScore}`, { font: '30px Arial', fill: '#ffffff' });
+    this.scoreDisplay = game.add.text(200, 20, `Score: ${this.score} \nHighScore: ${this.highScore}`, { font: '20px Prometheus', fill: '#ffffff' });
 
     this.fireSound = game.add.audio('fire');
 
@@ -125,9 +125,10 @@ const mainState = {
 
 
   speedpowerup: function (powerup, ship) {
-    let s = 2000;
     this.powerup.kill();
-    this.ship.body.velocity.x = s;
+    if (this.powerup.kill) {
+        let s = 2;
+      }
   },
 
 

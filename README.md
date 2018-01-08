@@ -38,3 +38,8 @@ asset in order to develop the code first.
 Still stuck on adding physics to powerup, the player can phase through it instead
 of colliding. I modified the bullet velocity in order to make the gameplay feel
 more engaging and responsive.
+
+8/1/18
+Made some significant progress with the powerup and the gameover state, still
+need to implement randomly timed spawn for the powerup as well as make it
+change gameplay elements.
