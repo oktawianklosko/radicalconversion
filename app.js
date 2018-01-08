@@ -5,8 +5,6 @@ const mainState = {
 
     game.add.image(0, 0, 'background');
 
-    //game.stage.backgroundColor = 'background';
-
     this.ship = game.add.sprite(400, 550, 'ship');
     game.physics.enable(this.ship, Phaser.Physics.ARCADE);
 
@@ -16,7 +14,6 @@ const mainState = {
 
     //PowerUp
     this.powerup = game.add.sprite(game.world.randomX, this.ship.position.y, 'powerup');
-    //game.add.sprite(game.world.randomX, this.ship.position.y, 'powerup');
     game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
 
 
