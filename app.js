@@ -2,6 +2,7 @@ const mainState = {
 
   create: function () {
 
+
     game.add.image(0, 0, 'background');
 
     //game.stage.backgroundColor = 'background';
@@ -14,8 +15,9 @@ const mainState = {
     this.aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
     //PowerUp
-    this.powerup = game.add.sprite(200, 550, 'powerup');
-    game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
+    // this.powerup = game.add.sprite(200, 550, 'powerup');
+    // game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
+    game.add.sprite(game.world.randomX, this.ship.position.y, 'powerup');
 
 
 
