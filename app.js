@@ -112,6 +112,7 @@ const mainState = {
     game.load.image('powerup2', 'assets/powerup2.png')
     game.load.image('powerup3', 'assets/powerup3.png')
     game.load.image('background', 'assets/background.png')
+    game.load.image('ship2', 'assets/ship2.png')
   },
 
   shipGotHit: function (alien, ship) {
@@ -126,7 +127,7 @@ const mainState = {
 
   speedpowerup: function (powerup, ship) {
     if (this.powerup.kill) {
-    
+
       }
     this.powerup.kill();
   },

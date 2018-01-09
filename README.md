@@ -19,8 +19,8 @@ the adding stopall sound
 -Create text screen which introduces the player to the game(Maybe provides lore)
 -Stop player from exiting bounds
 -Add bunkers?
--Alter the goal of the game.
-
+-Alter the goal of the game
+-Switch to ship2 when firing to make the ship flash
 
 
 Small diary- 31/12/17
