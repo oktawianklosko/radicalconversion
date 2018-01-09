@@ -124,14 +124,12 @@ const mainState = {
     }
   },
 
-
   speedpowerup: function (powerup, ship) {
     if (this.powerup.kill) {
 
       }
     this.powerup.kill();
   },
-
 
   update: function () {
 

@@ -1,7 +1,7 @@
 # radicalconversion
 
 To do list:
--First Draft of basic assets
+//First Draft of basic assets//Done
 //Create and implement music//Done
 //Stop music at gameover//Done
 --When game resets twice gameover state fails to launch for some reason after
@@ -13,7 +13,7 @@ the adding stopall sound
 -Add visual special effects
 -Power ups
 --Timer, random spawn
--Sound efffect for player/enemy deaths
+-Sound effect for player/enemy deaths
 -Multiple Levels/states
 -Create title screen
 -Create text screen which introduces the player to the game(Maybe provides lore)
