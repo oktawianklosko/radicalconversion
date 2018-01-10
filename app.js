@@ -19,7 +19,7 @@ const mainState = {
 
 
 
-    for (let i = 0; i < 48; i++) {
+    for (let i = 0; i < 40; i++) {
       let c = this.aliens.create(100 + (i % 8) * 80, 80 + Math.floor(i / 8) * 60, 'enemy');
       c.body.immovable = true;
     }
@@ -125,10 +125,11 @@ const mainState = {
   },
 
   speedpowerup: function (powerup, ship) {
+      this.powerup.kill();
     if (this.powerup.kill) {
-
-      }
-    this.powerup.kill();
+      
+      console.log("powerup");
+    }
   },
 
   update: function () {
@@ -141,7 +142,9 @@ const mainState = {
     this.aliens.forEach(
       (alien) => {
         alien.body.position.y = alien.body.position.y + 0.1;
+        //alien.body.position.x = alien.body.position.x +- 0.1;
         if (alien.y + alien.height > game.height) { this.gameOver(); }
+        if (alien.x + alien.width > game.width) { this.gameover(); }
       }
     );
 
@@ -166,13 +169,13 @@ const gameoverState = {
       game.world.centerX - gameOverImg.width / 2,
       game.world.centerY - gameOverImg.height / 2,
       'gameover');
-    game.input.onDown.add(() => { game.state.start('main'); });
-    this.music.stopAll();
-  }
+      game.input.onDown.add(() => { game.state.start('main'); });
+      this.music.stopAll();
+    }
 
-};
+  };
 
-const game = new Phaser.Game(800, 600);
-game.state.add('main', mainState);
-game.state.add('gameover', gameoverState);
-game.state.start('main');
+  const game = new Phaser.Game(800, 600);
+  game.state.add('main', mainState);
+  game.state.add('gameover', gameoverState);
+  game.state.start('main');
