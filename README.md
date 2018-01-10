@@ -24,7 +24,7 @@ the adding stopall sound
 -Switch bullet type through powerup
 -Bullet collision only works on the centre of the sprite
 
--Any final radical changes? Lore, text screen, animations
+-Any final radical changes? Lore, text screen, animations, power moves 
 
 
 Small diary- 31/12/17
