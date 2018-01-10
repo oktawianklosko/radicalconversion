@@ -169,7 +169,6 @@ const mainState = {
     this.aliens.forEach(
       (alien) => {
         alien.body.position.y = alien.body.position.y + 0.1;
-        //alien.body.position.x = alien.body.position.x +- 0.1;
         if (alien.y + alien.height > game.height) { this.gameOver(); }
         if (alien.x + alien.width > game.width) { this.gameover(); }
       }
