@@ -21,6 +21,8 @@ the adding stopall sound
 -Add bunkers?
 -Alter the goal of the game
 -Switch to ship2 when firing to make the ship flash
+-Switch bullet type through powerup
+-Bullet collision only works on the centre of the sprite
 
 
 Small diary- 31/12/17

@@ -2,6 +2,7 @@ const mainState = {
 
   create: function () {
 
+    this.powerlevel = 1;
 
     game.add.image(0, 0, 'background');
 
@@ -12,7 +13,6 @@ const mainState = {
     this.aliens.enableBody = true;
     this.aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
-    //PowerUp
     this.powerup = game.add.sprite(game.world.randomX, this.ship.position.y, 'powerup');
     game.physics.enable(this.powerup, Phaser.Physics.ARCADE);
 
@@ -28,12 +28,25 @@ const mainState = {
     this.bullets.enableBody = true;
     this.bullets.physicsBodyType = Phaser.Physics.ARCADE;
 
+    this.bullets2 = game.add.group();
+    this.bullets2.enableBody = true;
+    this.bullets2.physicsBodyType = Phaser.Physics.ARCADE;
+
     for (let i = 0; i < 20; i++) {
       let b = this.bullets.create(0, 0, 'bullet');
       b.exists = false;
       b.visible = false;
       b.checkWorldBounds = true;
       b.events.onOutOfBounds.add((bullet) => { bullet.kill(); });
+    }
+
+    //Create second bullet group
+    for (let i = 0; i < 20; i++) {
+      let b = this.bullets2.create(0, 0, 'bullet2');
+      b.exists = false;
+      b.visible = false;
+      b.checkWorldBounds = true;
+      b.events.onOutOfBounds.add((bullet2) => { bullet2.kill(); });
     }
 
     this.bulletTime = 0;
@@ -77,6 +90,18 @@ const mainState = {
         this.bulletTime = game.time.now + 150;
       }
     }
+    if (this.powerlevel > 1) {
+      this.bullets.kill();
+      this.fireSound.play();
+      let bullet2 = this.bullets2.getFirstExists(false);
+      if (bullet2) {
+        bullet2.reset(this.ship.x + (this.ship.width / 2), this.ship.y - (this.ship.height + 5));
+        bullet2.body.velocity.y = -500;
+        this.bulletTime = game.time.now + 150;
+      }
+    }
+
+
   },
 
   gameOver: function () {
@@ -113,6 +138,7 @@ const mainState = {
     game.load.image('powerup3', 'assets/powerup3.png')
     game.load.image('background', 'assets/background.png')
     game.load.image('ship2', 'assets/ship2.png')
+    game.load.image('bullet2', 'assets/bullet2.png')
   },
 
   shipGotHit: function (alien, ship) {
@@ -124,10 +150,10 @@ const mainState = {
     }
   },
 
-  speedpowerup: function (powerup, ship) {
+  speedpowerup: function (powerup, ship, powerlevel) {
       this.powerup.kill();
     if (this.powerup.kill) {
-      
+      this.powerlevel = 2;
       console.log("powerup");
     }
   },
@@ -137,6 +163,7 @@ const mainState = {
     game.physics.arcade.overlap(this.bullets, this.aliens, this.hit, null, this);
     game.physics.arcade.overlap(this.aliens, this.ship, this.shipGotHit, null, this);
     game.physics.arcade.overlap(this.powerup, this.ship, this.speedpowerup, null, this);
+    game.physics.arcade.overlap(this.bullets2, this.aliens, this.hit, null, this);
 
     this.ship.body.velocity.x = 0;
     this.aliens.forEach(
