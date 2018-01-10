@@ -150,7 +150,7 @@ const mainState = {
     }
   },
 
-  speedpowerup: function (powerup, ship, powerlevel) {
+  bulletpowerup: function (powerup, ship, powerlevel) {
       this.powerup.kill();
     if (this.powerup.kill) {
       this.powerlevel = 2;
@@ -162,7 +162,7 @@ const mainState = {
 
     game.physics.arcade.overlap(this.bullets, this.aliens, this.hit, null, this);
     game.physics.arcade.overlap(this.aliens, this.ship, this.shipGotHit, null, this);
-    game.physics.arcade.overlap(this.powerup, this.ship, this.speedpowerup, null, this);
+    game.physics.arcade.overlap(this.powerup, this.ship, this.bulletpowerup, null, this);
     game.physics.arcade.overlap(this.bullets2, this.aliens, this.hit, null, this);
 
     this.ship.body.velocity.x = 0;
