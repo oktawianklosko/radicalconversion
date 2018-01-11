@@ -6,8 +6,7 @@ const menuState = {
   create: function () {
     game.add.image(0, 0, 'menu');
       game.input.onDown.add(() => { game.state.start('main'); });
-      music = game.add.audio("music");
-      music.play('',0,1,true);
+
     }
 
   };
@@ -19,6 +18,9 @@ const menuState = {
 const mainState = {
 
   create: function () {
+
+    music = game.add.audio("music");
+    music.play('',0,1,true);
 
     this.powerlevel = 1;
 
@@ -83,7 +85,7 @@ const mainState = {
     this.cursors = game.input.keyboard.createCursorKeys();
     game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
 
-    
+
 
   },
 
