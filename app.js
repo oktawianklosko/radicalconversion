@@ -1,11 +1,13 @@
 const menuState = {
   preload: function () {
     game.load.image('menu', 'assets/menu.png');
+    game.load.audio('music', 'assets/music.wav');
   },
   create: function () {
     game.add.image(0, 0, 'menu');
       game.input.onDown.add(() => { game.state.start('main'); });
-      this.music.stopAll();
+      music = game.add.audio("music");
+      music.play('',0,1,true);
     }
 
   };
@@ -89,9 +91,7 @@ const mainState = {
     this.cursors = game.input.keyboard.createCursorKeys();
     game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
 
-    //Background Music
-    music = game.add.audio("music");
-    music.play('',0,1,true);
+
 
 
   },
@@ -112,7 +112,7 @@ const mainState = {
       let bullet2 = this.bullets2.getFirstExists(false);
       if (bullet2) {
         bullet2.reset(this.ship.x + (this.ship.width / 2), this.ship.y - (this.ship.height + 5));
-        bullet2.body.velocity.y = -500;
+        bullet2.body.velocity.y = -800;
         this.bulletTime = game.time.now + 150;
       }
     }
@@ -183,7 +183,7 @@ const mainState = {
     this.ship.body.velocity.x = 0;
     this.aliens.forEach(
       (alien) => {
-        alien.body.position.y = alien.body.position.y + 0.3;
+        alien.body.position.y = alien.body.position.y + 0.2;
         if (alien.y + alien.height > game.height) { this.gameOver(); }
         if (alien.x + alien.width > game.width) { this.gameover(); }
       }
