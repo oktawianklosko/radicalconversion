@@ -86,7 +86,7 @@ const mainState = {
       let bullet = this.bullets.getFirstExists(false);
       if (bullet) {
         bullet.reset(this.ship.x + (this.ship.width / 2), this.ship.y - (this.ship.height + 5));
-        bullet.body.velocity.y = -500;
+        bullet.body.velocity.y = -1500;
         this.bulletTime = game.time.now + 150;
       }
     }
@@ -187,7 +187,7 @@ const mainState = {
 
 const gameoverState = {
   preload: function () {
-    game.load.image('gameover', 'assets/gameover.jpg');
+    game.load.image('gameover', 'assets/gameover.png');
   },
   create: function () {
     const gameOverImg = game.cache.getImage('gameover');
