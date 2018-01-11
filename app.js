@@ -69,14 +69,6 @@ const mainState = {
 
     this.bulletTime = 0;
 
-    this.explosion = this.game.add.sprite(0, 0, 'explode');
-    this.explosion.exists = false;
-    this.explosion.visible = false;
-    // this.explosion.frame = 6; // show one frame of the spritesheet
-    this.explosion.anchor.x = 0.5;
-    this.explosion.anchor.y = 0.5;
-    this.explosion.animations.add('boom');
-
     this.highScore = localStorage.getItem('invadershighscore');
     if (this.highScore === null) {
       localStorage.setItem('invadershighscore', 0);
@@ -91,8 +83,7 @@ const mainState = {
     this.cursors = game.input.keyboard.createCursorKeys();
     game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
 
-
-
+    
 
   },
 
@@ -127,12 +118,14 @@ const mainState = {
     }
     game.state.start('gameover');
     game.sound.stopAll();
+    music = game.add.audio("music2");
+
 
 
   },
 
   hit: function (bullet, enemy) {
-    this.score = this.score + 10;
+    this.score = this.score + 20;
     bullet.kill();
     enemy.kill();
     if (this.aliens.countLiving() === 0) {
@@ -146,21 +139,16 @@ const mainState = {
     game.load.image('ship', 'assets/ship.png');
     game.load.image('enemy', 'assets/enemy.png');
     game.load.image('bullet', 'assets/bullet.png');
-    game.load.spritesheet('explode', 'assets/explode.png', 128, 128);
     game.load.audio('fire', 'assets/fire.mp3');
     game.load.audio('music', 'assets/music.wav')
     game.load.image('powerup', 'assets/powerup.png')
-    game.load.image('powerup2', 'assets/powerup2.png')
-    game.load.image('powerup3', 'assets/powerup3.png')
     game.load.image('background', 'assets/background.png')
     game.load.image('ship2', 'assets/ship2.png')
     game.load.image('bullet2', 'assets/bullet2.png')
   },
 
   shipGotHit: function (alien, ship) {
-    this.explosion.reset(this.ship.x + (this.ship.width / 2), this.ship.y + (this.ship.height / 2));
     this.ship.kill();
-    this.explosion.animations.play('boom');
     if (this.ship.kill) {
       this.gameOver();
     }
@@ -190,9 +178,9 @@ const mainState = {
     );
 
     if (this.cursors.left.isDown) {
-      this.ship.body.velocity.x = -300;
+      this.ship.body.velocity.x = -400;
     } else if (this.cursors.right.isDown) {
-      this.ship.body.velocity.x = 300;
+      this.ship.body.velocity.x = 400;
     }
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
       this.fire();
@@ -211,7 +199,6 @@ const gameoverState = {
       game.world.centerY - gameOverImg.height / 2,
       'gameover');
       game.input.onDown.add(() => { game.state.start('main'); });
-      this.music.stopAll();
     }
 
   };
