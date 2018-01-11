@@ -105,8 +105,8 @@ const mainState = {
       let bullet2 = this.bullets2.getFirstExists(false);
       if (bullet2) {
         bullet2.reset(this.ship.x + (this.ship.width / 2), this.ship.y - (this.ship.height + 5));
-        bullet2.body.velocity.y = -800;
-        this.bulletTime = game.time.now + 150;
+        bullet2.body.velocity.y = -1500;
+        this.bulletTime = game.time.now + 5000;
       }
     }
 
