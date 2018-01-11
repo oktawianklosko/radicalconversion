@@ -1,3 +1,19 @@
+const menuState = {
+  preload: function () {
+    game.load.image('menu', 'assets/menu.png');
+  },
+  create: function () {
+    game.add.image(0, 0, 'menu');
+      game.input.onDown.add(() => { game.state.start('main'); });
+      this.music.stopAll();
+    }
+
+  };
+
+
+
+
+
 const mainState = {
 
   create: function () {
@@ -66,7 +82,7 @@ const mainState = {
     }
 
     this.score = 0;
-    this.scoreDisplay = game.add.text(200, 20, `Score: ${this.score} \nHighScore: ${this.highScore}`, { font: '20px Prometheus', fill: '#ffffff' });
+    this.scoreDisplay = game.add.text(200, 20, `Score: ${this.score} \nHighScore: ${this.highScore}`, { font: '20px AR DESTINE', fill: '#ffffff' });
 
     this.fireSound = game.add.audio('fire');
 
@@ -154,7 +170,6 @@ const mainState = {
       this.powerup.kill();
     if (this.powerup.kill) {
       this.powerlevel = 2;
-      console.log("powerup");
     }
   },
 
@@ -168,7 +183,7 @@ const mainState = {
     this.ship.body.velocity.x = 0;
     this.aliens.forEach(
       (alien) => {
-        alien.body.position.y = alien.body.position.y + 0.1;
+        alien.body.position.y = alien.body.position.y + 0.3;
         if (alien.y + alien.height > game.height) { this.gameOver(); }
         if (alien.x + alien.width > game.width) { this.gameover(); }
       }
@@ -202,6 +217,7 @@ const gameoverState = {
   };
 
   const game = new Phaser.Game(800, 600);
+  game.state.add('menu', menuState);
   game.state.add('main', mainState);
   game.state.add('gameover', gameoverState);
-  game.state.start('main');
+  game.state.start('menu');
