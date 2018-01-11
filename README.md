@@ -1,31 +1,27 @@
 # radicalconversion
 
 To do list:
-//First Draft of basic assets//Done
-//Create and implement music//Done
-//Stop music at gameover//Done
---When game resets twice gameover state fails to launch for some reason after
-the adding stopall sound
+//First Draft of basic assets//Done//
+//Create and implement music//Done//
+//Stop music at gameover//Done//
+//When game resets twice gameover state fails to launch for some reason after
+the adding stopall sound//Done//
 
-//Gameover when player dies//Done
+//Gameover when player dies//Done//
 -Tweek values to make the gameplay more difficult
-//Tweek gameplay to be more satisfying to play//Done
+//Tweek gameplay to be more satisfying to play//Done//
 -Add visual special effects
--Power ups
+//Power ups//Done//
 --Timer, random spawn
 -Sound effect for player/enemy deaths
 -Multiple Levels/states
 -Create title screen
--Create text screen which introduces the player to the game(Maybe provides lore)
+//Create text screen which introduces the player to the game(Maybe provides lore)//Done//
 -Stop player from exiting bounds
 -Add bunkers?
 -Alter the goal of the game
 -Switch to ship2 when firing to make the ship flash
--Switch bullet type through powerup
--Bullet collision only works on the centre of the sprite
-
--Any final radical changes? Lore, text screen, animations, power moves, alter score with powerup
-
+//Switch bullet type through powerup//Done//
 
 Small diary- 31/12/17
 So far in this project I've struggled with transforming my ideas into my code
